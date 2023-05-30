@@ -27,9 +27,7 @@ mediquote/mediquote/server> poetry shell
 ```sh
 mediquote/mediquote/server> flask --app app --port=5000 run
 ``` 
-
 or 
-
 ```sh
 mediquote/mediquote/server> python app.py
 ```
