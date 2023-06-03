@@ -1,1 +1,0 @@
-"{\"Age\":34,\"Diabetes\":0,\"BloodPressureProblems\":0,\"AnyTransplants\":0,\"AnyChronicDiseases\":1,\"Height\":177,\"Weight\":83,\"KnownAllergies\":0,\"HistoryOfCancerInFamily\":0,\"NumberOfMajorSurgeries\":0}"
