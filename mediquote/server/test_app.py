@@ -24,6 +24,9 @@ data = (
     ]
 ).to_json()
 
+with open('data.txt', 'w') as f:
+  json.dump(data, f)
+
 for model_name in model_names:
     print("Testing model:", model_name)
 
