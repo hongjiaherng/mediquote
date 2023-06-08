@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 import json
 
-model_names = ["decision-tree", "random-forest", "mlp"]
+model_names = ["decision-tree", "random-forest", "xgboost", "mlp"]
 
 df = pd.read_csv("../../model_dev/data/medicalpremium.csv")
 data = (

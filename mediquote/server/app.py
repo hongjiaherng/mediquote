@@ -11,6 +11,7 @@ scaler = joblib.load("./models/standard_scaler.joblib")
 models = {
   "decision-tree": joblib.load("./models/decision_tree.joblib"),
   "random-forest": joblib.load("./models/random_forest.joblib"),
+  "xgboost": joblib.load("./models/xgboost.joblib"),
   "mlp": torch.load("./models/mlp.pt")
 }
 
