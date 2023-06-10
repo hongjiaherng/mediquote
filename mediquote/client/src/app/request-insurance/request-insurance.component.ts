@@ -73,7 +73,7 @@ export class RequestInsuranceComponent implements OnInit{
 
     if (this.insuranceForm.status === 'VALID') {
         const insuranceRequestModel = new InsuranceRequestModel();
-        insuranceRequestModel.Age = this.insuranceForm.value.Age;
+        insuranceRequestModel.Age = parseFloat(this.insuranceForm.value.Age);
         insuranceRequestModel.Diabetes = this.insuranceForm.value.Diabetes === 'Yes' ? 1 : 0;
         insuranceRequestModel.BloodPressureProblems = this.insuranceForm.value.BloodPressureProblems === 'Yes' ? 1 : 0;
         insuranceRequestModel.AnyTransplants = this.insuranceForm.value.AnyTransplants === 'Yes' ? 1 : 0;
@@ -82,7 +82,7 @@ export class RequestInsuranceComponent implements OnInit{
         insuranceRequestModel.Weight = parseFloat(this.insuranceForm.value.Weight);
         insuranceRequestModel.KnownAllergies = this.insuranceForm.value.KnownAllergies === 'Yes' ? 1 : 0;
         insuranceRequestModel.HistoryOfCancerInFamily = this.insuranceForm.value.HistoryOfCancerInFamily === 'Yes' ? 1 : 0;
-        insuranceRequestModel.NumberOfMajorSurgeries = this.insuranceForm.value.NumberOfMajorSurgeries
+        insuranceRequestModel.NumberOfMajorSurgeries = parseFloat(this.insuranceForm.value.NumberOfMajorSurgeries);
 
         console.log(insuranceRequestModel);
 
@@ -92,7 +92,7 @@ export class RequestInsuranceComponent implements OnInit{
             if (resp.data) {
               this.createNotification('Successfully added a new request.', 'success');
               this.buttonLoading = false;
-              this.router.navigate(['/result'], {queryParams: {result: resp.data.prediction}});
+              this.router.navigate(['/result'], {queryParams: {result: resp.data}});
             }
           });
         } else if(this.insuranceForm.value.Model === 'Random Forest'){
@@ -100,7 +100,7 @@ export class RequestInsuranceComponent implements OnInit{
             if (resp.data) {
               this.createNotification('Successfully added a new request.', 'success');
               this.buttonLoading = false;
-              this.router.navigate(['/result'], {queryParams: {result: resp.data.prediction}});
+              this.router.navigate(['/result'], {queryParams: {result: resp.data}});
             }
           });
         } else if(this.insuranceForm.value.Model === 'Multilayer Perceptron'){
