@@ -10,15 +10,19 @@ import { ResponseModel } from "../model/response.model";
 export class InsuranceService {
     constructor(private http: HttpClient){}
 
-    decisionTree(model: InsuranceRequestModel): Observable<ResponseModel<string>> {
-        return this.http.post<ResponseModel<string>>('http://127.0.0.1:5000/predict/decision-tree', model, {});
+    decisionTree(model: InsuranceRequestModel): Observable<ResponseModel<InsuranceRequestModel>> {
+        return this.http.post<ResponseModel<InsuranceRequestModel>>('http://127.0.0.1:5000/predict/decision-tree', model, {});
     }
 
-    randomForest(model: InsuranceRequestModel): Observable<ResponseModel<string>> {
-        return this.http.post<ResponseModel<string>>('http://127.0.0.1:5000/predict/random-forest', model, {});
+    randomForest(model: InsuranceRequestModel): Observable<ResponseModel<InsuranceRequestModel>> {
+        return this.http.post<ResponseModel<InsuranceRequestModel>>('http://127.0.0.1:5000/predict/random-forest', model, {});
     }
 
     mlp(model: InsuranceRequestModel): Observable<ResponseModel<InsuranceRequestModel>> {
         return this.http.post<ResponseModel<InsuranceRequestModel>>('http://127.0.0.1:5000/predict/mlp', model, {});
+    }
+
+    xgboost(model: InsuranceRequestModel): Observable<ResponseModel<InsuranceRequestModel>> {
+        return this.http.post<ResponseModel<InsuranceRequestModel>>('http://127.0.0.1:5000/predict/xgboost', model, {});
     }
 }

@@ -19,7 +19,6 @@ export class ResultComponent implements OnInit{
     this.route.queryParams.subscribe(params => {
       this.queryParams = params;
       this.result = this.queryParams.result;
-      console.log(params);
     });
   }
 

@@ -28,6 +28,10 @@ export class RequestInsuranceComponent implements OnInit{
     {
       text: 'Multilayer Perceptron',
       value: 'Multilayer Perceptron'
+    },
+    {
+      text: 'XGBoost',
+      value: 'XGBoost'
     }
   ]
 
@@ -88,30 +92,38 @@ export class RequestInsuranceComponent implements OnInit{
 
         if(this.insuranceForm.value.Model === 'Decision Tree') {
           this.insuranceService.decisionTree(insuranceRequestModel).subscribe(resp => {
-            console.log(resp.status);
-            if (resp.data) {
+            if (resp) {
               this.createNotification('Successfully added a new request.', 'success');
               this.buttonLoading = false;
-              this.router.navigate(['/result'], {queryParams: {result: resp.data}});
+              this.router.navigate(['/result'], {queryParams: {result: resp.prediction}});
             }
           });
         } else if(this.insuranceForm.value.Model === 'Random Forest'){
           this.insuranceService.randomForest(insuranceRequestModel).subscribe(resp => {
-            if (resp.data) {
+            if (resp) {
               this.createNotification('Successfully added a new request.', 'success');
               this.buttonLoading = false;
-              this.router.navigate(['/result'], {queryParams: {result: resp.data}});
+              this.router.navigate(['/result'], {queryParams: {result: resp.prediction}});
             }
           });
         } else if(this.insuranceForm.value.Model === 'Multilayer Perceptron'){
           this.insuranceService.mlp(insuranceRequestModel).subscribe(resp => {
-            if (resp.data) {
+            if (resp) {
               this.createNotification('Successfully added a new request.', 'success');
               this.buttonLoading = false;
-              this.router.navigate(['/result'], {queryParams: {result: resp.data.prediction}});
+              this.router.navigate(['/result'], {queryParams: {result: resp.prediction}});
             }
           });
-        } else {
+        } else if(this.insuranceForm.value.Model === 'XGBoost'){
+          this.insuranceService.xgboost(insuranceRequestModel).subscribe(resp => {
+            if (resp) {
+              this.createNotification('Successfully added a new request.', 'success');
+              this.buttonLoading = false;
+              this.router.navigate(['/result'], {queryParams: {result: resp.prediction}});
+            }
+          });
+        }
+        else {
           this.createNotification('Please select the model given.', 'error');
         }
     } else {
