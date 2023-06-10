@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 import joblib
 import json
 import torch
@@ -6,6 +7,9 @@ import numpy as np
 
 
 app = Flask(__name__)
+cors = CORS(app)
+
+app.config["CORS_HEADERS"] = "Content-Type"
 
 scaler = joblib.load("./models/standard_scaler.joblib")
 models = {
@@ -33,6 +37,7 @@ expected_fields = [
 ]
 
 @app.route("/")
+@cross_origin()
 def index():
   return "Hello from MediQuote!"
 
