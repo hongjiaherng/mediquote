@@ -24,7 +24,7 @@ mediquote> cd "./mediquote/client/"
 ```
 2. Install dependencies
 ```sh
-mediquote/mediquote/client> npm install -g @angular/cli
+mediquote/mediquote/client> npm install -g @angular/cli@16.0.5
 ```
 3. Start the web server
 ```sh
