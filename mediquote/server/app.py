@@ -74,7 +74,7 @@ def predict(model_name):
     else:
       prediction = model.predict(features)[0]
 
-    return jsonify({"prediction": prediction})
+    return jsonify({"prediction": round(prediction, 2)})
 
   except KeyError as e:
     return jsonify({"error": f"Invalid request: {str(e.args[0])}"}), 400
