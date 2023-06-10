@@ -21,4 +21,8 @@ export class InsuranceService {
     mlp(model: InsuranceRequestModel): Observable<ResponseModel<InsuranceRequestModel>> {
         return this.http.post<ResponseModel<InsuranceRequestModel>>('http://127.0.0.1:5000/predict/mlp', model, {});
     }
+
+    xgboost(model: InsuranceRequestModel): Observable<ResponseModel<InsuranceRequestModel>> {
+        return this.http.post<ResponseModel<InsuranceRequestModel>>('http://127.0.0.1:5000/predict/xgboost', model, {});
+    }
 }

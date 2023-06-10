@@ -4,4 +4,5 @@ export class ResponseModel<T> {
     totalCount!: number;
     errorCode!: string;
     errorMessage!: string;
+    prediction!: number;
 }
