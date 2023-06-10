@@ -1,0 +1,25 @@
+.content {
+    display: flex;
+    margin: auto;
+    padding: 0 16px;
+    flex-direction: column;
+}
+
+svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+}
+
+nz-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    flex-basis: 100%;
+    width: 1400px;
+  }
+
+  p {
+    font-size: 20px;
+  }

@@ -1,0 +1,178 @@
+<div style="padding: 50px; display: flex;">
+  <nz-card nzTitle="MediQuote" nzType="inner">
+    <nz-card-meta nzDescription="A medical insurance premium predicted system"></nz-card-meta>
+    <br>
+    <form nz-form [formGroup]="insuranceForm">
+      <!-- Model -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Select a model</nz-form-label>
+        <nz-form-control [nzSpan]="8" [nzErrorTip]="modelErr">
+          <nz-select nzShowSearch nzAllowClear formControlName="Model" nzPlaceHolder="Select a model">
+            <ng-container *ngFor="let model of model_list">
+              <nz-option [nzLabel]="model.text" [nzValue]="model.value"></nz-option>
+            </ng-container>
+          </nz-select>
+          <ng-template #modelErr>
+            Please select a model.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      
+      <!-- Age -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Enter your age</nz-form-label>
+        <nz-form-control [nzSpan]="8" [nzErrorTip]="ageErr">
+          <input nz-input placeholder="Enter your age" formControlName="Age"/>
+          <ng-template #ageErr>
+            Please provide age.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Diabetes -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Do you have diabetes?</nz-form-label>
+        <nz-form-control [nzErrorTip]="diabetesErr">
+          <nz-radio-group nz-row formControlName="Diabetes">
+            <label nz-radio nzValue="Yes">Yes</label>
+            <br>
+            <label nz-radio nzValue="No">No</label>
+          </nz-radio-group>
+          <ng-template #diabetesErr>
+            Please select an option.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Blood Pressure -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Do you have any blood pressure problem?</nz-form-label>
+        <nz-form-control [nzErrorTip]="bloodPressureErr">
+          <nz-radio-group formControlName="BloodPressureProblems">
+            <label nz-radio nzValue="Yes">Yes</label>
+            <br>
+            <label nz-radio nzValue="No">No</label>
+          </nz-radio-group>
+          <ng-template #bloodPressureErr>
+            Please select an option.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Transplant -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Have you done any transplant before?</nz-form-label>
+        <nz-form-control [nzErrorTip]="transplantErr">
+          <nz-radio-group formControlName="AnyTransplants">
+            <label nz-radio nzValue="Yes">Yes</label>
+            <br>
+            <label nz-radio nzValue="No">No</label>
+          </nz-radio-group>
+          <ng-template #transplantErr>
+            Please select an option.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Chronic Disease -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Do you suffer any chronic disease?</nz-form-label>
+        <nz-form-control [nzErrorTip]="chronicErr">
+          <nz-radio-group formControlName="AnyChronicDiseases">
+            <label nz-radio nzValue="Yes">Yes</label>
+            <br>
+            <label nz-radio nzValue="No">No</label>
+          </nz-radio-group>
+          <ng-template #chronicErr>
+            Please select an option.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Height -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Enter your height</nz-form-label>
+        <nz-form-control [nzSpan]="8" [nzErrorTip]="heightErr">
+          <input placeholder="Enter your height" nz-input formControlName="Height"/>
+          <ng-template #heightErr>
+            Please provide height.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Weight -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Enter your weight</nz-form-label>
+        <nz-form-control [nzSpan]="8" [nzErrorTip]="weightErr">
+          <input placeholder="Enter your weight" nz-input formControlName="Weight"/>
+          <ng-template #weightErr>
+            Please provide weight.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Allergies -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Do you have any known allergies?</nz-form-label>
+        <nz-form-control [nzErrorTip]="allergiesErr">
+          <nz-radio-group formControlName="KnownAllergies">
+            <label nz-radio nzValue="Yes">Yes</label>
+            <br>
+            <label nz-radio nzValue="No">No</label>
+          </nz-radio-group>
+          <ng-template #allergiesErr>
+            Please select an option.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Cancer -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Do you have nay cancer history in your family?</nz-form-label>
+        <nz-form-control [nzErrorTip]="cancerErr">
+          <nz-radio-group formControlName="HistoryOfCancerInFamily">
+            <label nz-radio nzValue="Yes">Yes</label>
+            <br>
+            <label nz-radio nzValue="No">No</label>
+          </nz-radio-group>
+          <ng-template #cancerErr>
+            Please select an option.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Surgeries -->
+      <nz-form-item>
+        <nz-form-label nzRequired>Enter the number of surgeries you had done before</nz-form-label>
+        <nz-form-control [nzSpan]="8" [nzErrorTip]="surgeriesErr">
+          <input placeholder="Enter a number" nz-input formControlName="NumberOfMajorSurgeries"/>
+          <ng-template #surgeriesErr>
+            Please provide a number.
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <!-- Submit -->
+      <nz-form-item>
+        <nz-form-control>
+          <button 
+            nz-button 
+            nzType="primary" 
+            nzSize="large" 
+            [nzLoading]="buttonLoading"
+            (click)="onSubmit()"
+            >
+              Submit
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-card>
+</div>
+
+<div class="content" role="main">
+    <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+        <title>Gray Clouds Background</title>
+        <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+    </svg>
+</div>
