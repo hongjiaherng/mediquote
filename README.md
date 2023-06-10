@@ -47,6 +47,7 @@ mediquote/mediquote/server> python test_app.py
     - `/predict/decision-tree` - predict with decision tree model
     - `/predict/random-forest` - predict with random forest model
     - `/predict/mlp` - predict with MLP model
+    - `/predict/xgboost` - predict with XGBoost model
 
 
 ## Tools & Technologies
