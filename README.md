@@ -22,11 +22,11 @@ A web application that allows users to get a quote for their medical insurance p
 ```sh
 mediquote> cd "./mediquote/client/"
 ```
-2. Install dependencies
+2. Install Angular CLI
 ```sh
 mediquote/mediquote/client> npm install -g @angular/cli@16.0.5
 ```
-2. npm Install
+2. Install dependencies
 ```sh
 mediquote/mediquote/client> npm install
 ```
