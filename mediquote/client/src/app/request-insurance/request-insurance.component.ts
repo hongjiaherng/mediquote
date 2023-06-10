@@ -86,11 +86,10 @@ export class RequestInsuranceComponent implements OnInit{
 
         console.log(insuranceRequestModel);
 
-        this.router.navigate(['/result'], {queryParams: {result: 844.307}});
-
         if(this.insuranceForm.value.Model === 'Decision Tree') {
           this.insuranceService.decisionTree(insuranceRequestModel).subscribe(resp => {
-            if (resp.data && resp.status === 'SUCCESS') {
+            console.log(resp.status);
+            if (resp.data) {
               this.createNotification('Successfully added a new request.', 'success');
               this.buttonLoading = false;
               this.router.navigate(['/result'], {queryParams: {result: resp.data.prediction}});
@@ -98,7 +97,7 @@ export class RequestInsuranceComponent implements OnInit{
           });
         } else if(this.insuranceForm.value.Model === 'Random Forest'){
           this.insuranceService.randomForest(insuranceRequestModel).subscribe(resp => {
-            if (resp.data && resp.status === 'SUCCESS') {
+            if (resp.data) {
               this.createNotification('Successfully added a new request.', 'success');
               this.buttonLoading = false;
               this.router.navigate(['/result'], {queryParams: {result: resp.data.prediction}});
@@ -106,7 +105,7 @@ export class RequestInsuranceComponent implements OnInit{
           });
         } else if(this.insuranceForm.value.Model === 'Multilayer Perceptron'){
           this.insuranceService.mlp(insuranceRequestModel).subscribe(resp => {
-            if (resp.data && resp.status === 'SUCCESS') {
+            if (resp.data) {
               this.createNotification('Successfully added a new request.', 'success');
               this.buttonLoading = false;
               this.router.navigate(['/result'], {queryParams: {result: resp.data.prediction}});
@@ -119,6 +118,5 @@ export class RequestInsuranceComponent implements OnInit{
         this.createNotification('Form validation error.', 'error');
         this.buttonLoading = false;
     }
-    this.buttonLoading = false;
   }
 }
