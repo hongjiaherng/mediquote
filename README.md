@@ -8,7 +8,8 @@ A web application that allows users to get a quote for their medical insurance p
 
 ### Prerequisites
 - Client-side
-  - `to be filled`
+  - [Node.js](https://nodejs.org/en) version 18.16.0
+  - Angular CLI with version 16.0.5
 - Server-side
   - Python 3.8 or above
   - [Poetry](https://python-poetry.org/) - Python dependency management tool
@@ -17,7 +18,18 @@ A web application that allows users to get a quote for their medical insurance p
 
 ### Running the client
 
-`to be filled`
+1. Change directory into the client root
+```sh
+mediquote> cd "./mediquote/client/"
+```
+2. Install dependencies
+```sh
+mediquote/mediquote/client> npm install -g @angular/cli
+```
+3. Start the web server
+```sh
+mediquote/mediquote/client> ng serve
+```
 
 ### Running the web server
 
@@ -52,7 +64,7 @@ mediquote/mediquote/server> python test_app.py
 
 ## Tools & Technologies
 - Client-side
-  - `to be filled`
+  - Node.js, Angular CLI, NG-ZORRO
 - Server-side
   - Python (>=3.8), Poetry, Flask, Scikit-learn, Pandas, Numpy, PyTorch
 
