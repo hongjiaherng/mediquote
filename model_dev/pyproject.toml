@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "model-dev"
+version = "0.1.0"
+description = "Model development for medical insurance premium prediction"
+authors = ["hongjiaherng <jiaherng2001@gmail.com>"]
+readme = "README.md"
+packages = [{include = "model_dev"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.24.3"
+pandas = "^2.0.1"
+scikit-learn = "^1.2.2"
+matplotlib = "^3.7.1"
+notebook = "^6.5.4"
+graphviz = "^0.20.1"
+xgboost = "^1.7.5"
+torch = "^2.0.1"
+torchvision = "^0.15.2"
+torchaudio = "^2.0.2"
+tqdm = "^4.65.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

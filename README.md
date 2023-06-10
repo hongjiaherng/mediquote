@@ -1,27 +1,62 @@
-# Assignment
+# MediQuote
+A medical insurance premium prediction system.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+## About the project
+A web application that allows users to get a quote for their medical insurance premium based on medical conditions and demographic information. 
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Prerequisites
+- Client-side
+  - `to be filled`
+- Server-side
+  - Python 3.8 or above
+  - [Poetry](https://python-poetry.org/) - Python dependency management tool
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Running the client
 
-## Build
+`to be filled`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Running the web server
 
-## Running unit tests
+1. Change directory into the server root
+```sh
+mediquote> cd "./mediquote/server/"
+```
+2. Install dependencies ([Guide](https://python-poetry.org/docs/basic-usage/#installing-dependencies))
+```sh
+mediquote/mediquote/server> poetry install
+```
+3. Activate the virtual environment
+```sh
+mediquote/mediquote/server> poetry shell
+```
+4. Start the web server
+```sh
+mediquote/mediquote/server> python app.py
+```
+5. Test the web server
+```sh
+mediquote/mediquote/server> python test_app.py
+```
+6. Note
+  - 3 endpoints are available:
+    - `/index` - Home page
+    - `/predict/decision-tree` - predict with decision tree model
+    - `/predict/random-forest` - predict with random forest model
+    - `/predict/mlp` - predict with MLP model
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Tools & Technologies
+- Client-side
+  - `to be filled`
+- Server-side
+  - Python (>=3.8), Poetry, Flask, Scikit-learn, Pandas, Numpy, PyTorch
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Acknowledgement
+This project is developed to fulfill a group assignment for the WIE3005 Knowledge Management and Engineering course at [University of Malaya](https://www.um.edu.my/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Special thanks to the author of [this dataset](https://www.kaggle.com/datasets/tejashvi14/medical-insurance-premium-prediction). Although this dataset might not be robust enough for real-world application, it is sufficient for the purpose of this project to illustrate the idea of predicting premium cost using Machine Learning.
