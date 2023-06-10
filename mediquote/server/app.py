@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 import joblib
-import json
 import torch
 import numpy as np
 
@@ -42,13 +41,15 @@ def index():
   return "Hello from MediQuote!"
 
 @app.route("/predict/<model_name>", methods=["POST"])
+@cross_origin()
 def predict(model_name):
+  
   if not request.is_json:
     return jsonify({"error": "Invalid request: Must pass in JSON"}), 400
   
   try:
     # Get the JSON payload from the request
-    data = json.loads(request.get_json())
+    data = request.get_json()
 
     # Check for missing or extra fields
     missing_fields = set(expected_fields) - set(data.keys())
@@ -83,8 +84,8 @@ def predict(model_name):
 
   except KeyError as e:
     return jsonify({"error": f"Invalid request: {str(e.args[0])}"}), 400
-  except (ValueError, TypeError):
-    return jsonify({"error": "Invalid request: Please provide valid numeric values for all features."}), 400
+  except (ValueError, TypeError) as e:
+    return jsonify({"error": f"Invalid request: Please provide valid numeric values for all features. {e.args}"}), 400
   except Exception as e:
     return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
